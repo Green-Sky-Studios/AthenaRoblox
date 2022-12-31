@@ -75,7 +75,19 @@ local basicCommands = {
 
 		Function = function(plr, args)
 			showNotif(plr, "Fly", "Fly is not yet implemented.", 5)
+			return true
 		end
-	}
+	},
+
+	errcmd = {
+		CmdName = "errcmd",
+		Level = baseAdmin;
+		Desc = "error command",
+		Args = {};
+
+		Function = function(plr, args)
+			return "This is an error command"
+		end
+	},
 }
 return basicCommands

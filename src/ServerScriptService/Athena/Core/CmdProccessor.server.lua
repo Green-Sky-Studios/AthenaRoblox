@@ -52,14 +52,22 @@ local function handleCommands(player, message)
 		local status = false
 	
 	
-		for i,cmds in pairs(Commands) do
+		for v,cmds in pairs(Commands) do
 			if cmds.CmdName:lower() == cmd then
 				status = cmds.Function(player,args)
 			end
 		end
 
+		if status == nil then
+			showNotif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
+		end
+
 		if status == false then
 			showNotif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
+		end
+
+		if typeof(status) == "string" then
+			showNotif(player, "Command Error!", status, 5)
 		end
 	
 	end
