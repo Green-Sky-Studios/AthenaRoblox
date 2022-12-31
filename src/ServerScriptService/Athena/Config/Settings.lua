@@ -9,8 +9,11 @@ Description: Settings for the bot to access to make it more dynamic and configur
 local adminSettings = {
 	prefix = ";"; -- Set this to the default prefix
 	batchkey = "|";
-	seperatorKey = " "; -- Set this to the seperator key to split arguments
+	seperatorKey = " "; -- Set this to the seperator key to split arguments.
 	trelloFunctionality = false;
+	useranks = true;
+	useDiscord = false;
+	webhook = "";
 
 	Ranks = {
 		["Command Blacklist"] = {
@@ -39,8 +42,7 @@ local adminSettings = {
 			Users = {"group:14418566:2"};
 			Name = "GSS Executive";
 		};
-	}
-		
+	};	
 }
 
 return adminSettings
