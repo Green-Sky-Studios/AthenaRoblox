@@ -53,7 +53,7 @@ local function handleCommands(player, message)
 	
 	
 		for v,cmds in pairs(Commands) do
-			if cmds.CmdName:lower() == cmd then
+			if cmds.CmdName:lower():sub(1, #cmd) == cmd:lower() then
 				status = cmds.Function(player,args)
 			end
 		end

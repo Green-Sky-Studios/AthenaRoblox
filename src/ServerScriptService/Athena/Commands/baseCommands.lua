@@ -1,6 +1,7 @@
 local baseAdmin = script.Name --TODO Replace this with the actual admin level
 local showNotif = require(script.Parent.Parent.UI.AdminJoinModule)
 local utils = require(script.Parent.Parent.Parent.CaterLibrary.Utils)
+local showPrompt = require(script.Parent.Parent.UI.PromptModule)
 
 
 
@@ -89,5 +90,17 @@ local basicCommands = {
 			return "This is an error command"
 		end
 	},
+
+	showprompt = {
+		CmdName = "showprompt",
+		Level = baseAdmin;
+		Desc = "show a prompt",
+		Args = {};
+
+		Function = function(plr, args)
+			showPrompt(plr, "Prompt", "This is a prompt", 5)	
+		end
+	},
+	
 }
 return basicCommands
