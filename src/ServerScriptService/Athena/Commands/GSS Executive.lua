@@ -29,8 +29,9 @@ local Commands = {
 				for i, v in pairs(game.Players:GetPlayers()) do
 					v:Kick("Shutdown by " .. plr.Name .. ": " .. reason)
 				end
+				return true
 			else
-				error(errorMessage)
+				return errorMessage
 			end
 		end,
 	},
