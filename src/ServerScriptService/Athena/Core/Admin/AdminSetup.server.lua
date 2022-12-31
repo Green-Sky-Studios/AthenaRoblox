@@ -14,7 +14,7 @@ local Athena = script.Parent.Parent.Parent -- basic vars
 local Settings = require(Athena.Config.Settings)
 local Ranks = Settings["Ranks"]
 local UI = Athena.UI
-local Notifier = require(UI.AdminJoinModule)
+local show = require(UI.AdminJoinModule)
 
 game.Players.PlayerAdded:Connect(function(plr)
 	local temp = {} -- temporary table to store all elligable ranks the user can be
@@ -45,7 +45,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 	end
 	local wt = (10-plr:GetNetworkPing())*0.5
 	wait(wt)
-	Notifier(plr,AdminLvl.." ("..temp[1]..")","Athena Pre-Alpha (V0.01) loaded. Welcome back "..plr.DisplayName..".",10)
+	show.notif(plr,AdminLvl.." ("..temp[1]..")","Athena Pre-Alpha (V0.01) loaded. Welcome back "..plr.DisplayName..".",10)
 end)
 
 return InGameAdmins -- in game admins table can be returned by any script that requires it

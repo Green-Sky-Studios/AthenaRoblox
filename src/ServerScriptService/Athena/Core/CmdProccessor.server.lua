@@ -5,13 +5,13 @@ Date: 12/30/22
 Description: Processes the chat message at which point it is sent to the command function to use
 ]]
 
-local adminSettings = require(script.Parent.Parent.Config.Settings)
-local prefix = adminSettings.prefix
-local bk = adminSettings.batchkey
-local sep = adminSettings.seperatorKey
-local utils = require(script.Parent.Parent.Parent.CaterLibrary.Utils)
-local Commands = require(script.Parent.Parent.Commands.Commands)
-local showNotif = require(script.Parent.Parent.UI.AdminJoinModule)
+local adminSettings = require(script.Parent.Parent.Config.Settings) -- Getting the settings
+local prefix = adminSettings.prefix -- Getting the prefix
+local bk = adminSettings.batchkey -- Getting the batchkey
+local sep = adminSettings.seperatorKey -- Getting the seperator key
+local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils) -- Getting the utilities file from Cateriberary
+local Commands = require(script.Parent.Parent.Commands.Commands) -- Getting the commands from Mento's Table.
+local show = require(script.Parent.Parent.UI.AdminJoinModule)
 
 
 local function handleCommands(player, message)
@@ -59,15 +59,15 @@ local function handleCommands(player, message)
 		end
 
 		if status == nil then
-			showNotif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
+			show.notif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
 		end
 
 		if status == false then
-			showNotif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
+			show.notif(player, "Command Error!", cmd.. " not found or failed to execute", 5)
 		end
 
 		if typeof(status) == "string" then
-			showNotif(player, "Command Error!", status, 5)
+			show.notif(player, "Command Error!", status, 5)
 		end
 	
 	end

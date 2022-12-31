@@ -1,7 +1,6 @@
 local baseAdmin = script.Name --TODO Replace this with the actual admin level
-local showNotif = require(script.Parent.Parent.UI.AdminJoinModule)
-local utils = require(script.Parent.Parent.Parent.CaterLibrary.Utils)
-local showPrompt = require(script.Parent.Parent.UI.PromptModule)
+local show = require(script.Parent.Parent.UI.AdminJoinModule)
+local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils)
 
 
 
@@ -40,7 +39,7 @@ local basicCommands = {
 			local desc = args[3]
 			local showTime = args[4]
 			
-			showNotif(showPlayer, title, desc, showTime)
+			show.notif(showPlayer, title, desc, showTime)
 			return true
 		end,
 	},
@@ -75,7 +74,7 @@ local basicCommands = {
 		Args = {};
 
 		Function = function(plr, args)
-			showNotif(plr, "Fly", "Fly is not yet implemented.", 5)
+			show.notif(plr, "Fly", "Fly is not yet implemented.", 5)
 			return true
 		end
 	},
@@ -97,8 +96,22 @@ local basicCommands = {
 		Desc = "show a prompt",
 		Args = {};
 
-		Function = function(plr, args)
-			showPrompt(plr, "Prompt", "This is a prompt", 5)	
+		Function = function(player, args)
+			local plr = args[1]
+			if plr == "me" then
+				plr = player
+			end
+			if plr == nil then
+				plr = player
+			end
+			if typeof(plr) == "string" then
+				plr = utils.findPlayer(plr)
+			end
+			local title = args[2]
+			local desc = args[3]
+			local showTime = args[4] or 10
+			show.prompt(plr, title, desc, showTime)
+			return true	
 		end
 	},
 	
