@@ -13,7 +13,6 @@ local adminSettings = {
 	trelloFunctionality = false;
 	useranks = true;
 	useDiscord = false;
-	webhook = "https://discord.com/api/webhooks/1058950782986227742/Y-iH72P4jNScdhZMQUF7DTqBakTwa67oxAFaPKxSfHEwBMVacHdsksAT29mhjV3JU9kk";
 
 	Ranks = {
 		["Command Blacklist"] = {

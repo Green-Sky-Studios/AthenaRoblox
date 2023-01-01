@@ -7,7 +7,7 @@
 local http = game:GetService("HttpService")
 
 local adminsettings = require(game.ServerScriptService.Athena.Config.Settings)
-local webhook = adminsettings.webhook
+local webhook = require(script.Parent.Private).webhook
 
 local discordAPI = {
 commandSend = function (player, cmd, args)
