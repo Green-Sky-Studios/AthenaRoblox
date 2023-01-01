@@ -21,6 +21,12 @@ local adminSettings = {
 			Users = {};
 			Name = "Command Blacklist";
 		};
+
+		["Player"] = {
+			Level = 100;
+			Users = {};
+			Name = "Player";
+		};
 		
 		["GSS Moderator"] = {
 			Level = 350; -- Set this to the moderator level

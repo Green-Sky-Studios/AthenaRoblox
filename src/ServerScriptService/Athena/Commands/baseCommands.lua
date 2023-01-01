@@ -2,14 +2,12 @@ local adminSetting = require(script.Parent.Parent.Config.Settings) --TODO Replac
 local show = require(script.Parent.Parent.UI.AdminJoinModule)
 local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils)
 
-local baseAdmin = adminSetting.Ranks["GSS Moderator"].Level
-
 
 
 local basicCommands = {
 	test = {
 		CmdName = "test";
-		Level = baseAdmin;
+		Level = adminSetting.Ranks.Player.Level;
 		Desc = "testing";
 		Args = {};
 		
@@ -22,7 +20,7 @@ local basicCommands = {
 	
 	notif = {
 		CmdName = "notif";
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "notif tester";
 		Args = {};
 		
@@ -48,7 +46,7 @@ local basicCommands = {
 	
 	kill = {
 		CmdName = "kill",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "kill a user",
 		Args = {};
 		
@@ -71,7 +69,7 @@ local basicCommands = {
 	
 	fly = {
 		CmdName = "fly",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "fly a user",
 		Args = {};
 
@@ -83,7 +81,7 @@ local basicCommands = {
 
 	errcmd = {
 		CmdName = "errcmd",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Executive"].Level;
 		Desc = "error command",
 		Args = {};
 
@@ -94,7 +92,7 @@ local basicCommands = {
 
 	showprompt = {
 		CmdName = "showprompt",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "show a prompt",
 		Args = {};
 

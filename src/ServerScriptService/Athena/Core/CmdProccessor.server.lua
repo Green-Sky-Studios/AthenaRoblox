@@ -60,7 +60,7 @@ local function handleCommands(player, message)
 	
 		for v,cmds in pairs(Commands) do
 			if cmds.CmdName:lower():sub(1, #cmd) == cmd:lower() then
-				if cmds.Level > playerLevel then
+				if cmds.Level >= playerLevel then
 					status = "You do not have permission to use this command"
 					else
 				status = cmds.Function(player,args)
