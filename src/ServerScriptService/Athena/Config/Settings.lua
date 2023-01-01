@@ -13,6 +13,7 @@ local adminSettings = {
 	trelloFunctionality = false;
 	useranks = true;
 	useDiscord = false;
+	guildID = "1017818009475239946"; -- Set this to the guild ID
 
 	Ranks = {
 		["Command Blacklist"] = {

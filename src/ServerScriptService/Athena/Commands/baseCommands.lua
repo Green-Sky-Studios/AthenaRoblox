@@ -107,6 +107,9 @@ local basicCommands = {
 			if typeof(plr) == "string" then
 				plr = utils.findPlayer(plr)
 			end
+			if plr == false then
+				return "No player found named: " .. args[1]
+			end
 			local title = args[2]
 			local desc = args[3]
 			local showTime = args[4] or 10
