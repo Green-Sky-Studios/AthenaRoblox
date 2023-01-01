@@ -1,5 +1,4 @@
 --[[
-    WIP
     Author: Cater
     Date: 12/31/22
     Description: Code to interact with the discord API
@@ -10,7 +9,8 @@ local http = game:GetService("HttpService")
 local adminsettings = require(game.ServerScriptService.Athena.Config.Settings)
 local webhook = adminsettings.webhook
 
-local function sendWebHook(player, cmd, args)
+local discordAPI = {
+commandSend = function (player, cmd, args)
     args = table.concat(args, " ")
     local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
     local data = {
@@ -33,10 +33,12 @@ local function sendWebHook(player, cmd, args)
                     ["url"] = "https://images-ext-2.discordapp.net/external/GoD8rrzRKes9hYyQrSzZuBtqAbDjeTkD9F15TJmURlo/https/cdn.discordapp.com/avatars/965076506005082153/8c3cfe99872b8f7e2b0665b4881e6d4a.webp";
                 }
             };
+        }
     }
-}
     local finalData = http:JSONEncode(data)
-    http:PostAsync(webhook, finalData)
-end
+    http:PostAsync(webhook, finalData) 
+    end
+}
 
-return sendWebHook
+
+return discordAPI

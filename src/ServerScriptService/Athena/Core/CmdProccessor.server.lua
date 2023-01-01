@@ -13,7 +13,7 @@ local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils) -- Getting
 local Commands = require(script.Parent.Parent.Commands.Commands) -- Getting the commands from Mento's Table.
 local show = require(script.Parent.Parent.UI.AdminJoinModule)
 local InGameAdmins = require(script.Parent.Admin.AdminSetup)
-local sendWebHook = require(script.Parent.Parent.API.DiscordAPI)
+local discordAPI = require(script.Parent.Parent.API.DiscordAPI)
 
 
 local function handleCommands(player, message)
@@ -63,7 +63,7 @@ local function handleCommands(player, message)
 					else
 				status = cmds.Function(player,args)
 				if status == true then
-					sendWebHook(player, cmds.CmdName, args)
+					discordAPI.commandSend(player, cmds.CmdName, args)
 				end
 				end
 			end
