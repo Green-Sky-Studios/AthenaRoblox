@@ -12,6 +12,7 @@ local sep = adminSettings.seperatorKey -- Getting the seperator key
 local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils) -- Getting the utilities file from Cateriberary
 local Commands = require(script.Parent.Parent.Commands.Commands) -- Getting the commands from Mento's Table.
 local show = require(script.Parent.Parent.UI.AdminJoinModule)
+local InGameAdmins = require(script.Parent.Admin.AdminSetup)
 
 
 local function handleCommands(player, message)
@@ -37,6 +38,11 @@ local function handleCommands(player, message)
 			args = ""
 			cmd = cmd:lower()
 		end
+
+		local playerLevel = InGameAdmins[player]
+		if playerLevel == nil then
+			playerLevel = 0
+		end
 	
 	
 
@@ -54,7 +60,11 @@ local function handleCommands(player, message)
 	
 		for v,cmds in pairs(Commands) do
 			if cmds.CmdName:lower():sub(1, #cmd) == cmd:lower() then
+				if cmds.Level > playerLevel then
+					status = "You do not have permission to use this command"
+					else
 				status = cmds.Function(player,args)
+				end
 			end
 		end
 

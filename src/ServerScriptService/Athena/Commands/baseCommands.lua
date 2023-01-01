@@ -1,6 +1,8 @@
-local baseAdmin = script.Name --TODO Replace this with the actual admin level
+local adminSetting = require(script.Parent.Parent.Config.Settings) --TODO Replace this with the actual admin level
 local show = require(script.Parent.Parent.UI.AdminJoinModule)
 local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils)
+
+local baseAdmin = adminSetting.Ranks["GSS Moderator"].Level
 
 
 
@@ -114,6 +116,16 @@ local basicCommands = {
 			return true	
 		end
 	},
+	highCommand = {
+		CmdName = "highCommand", -- This is to test the command level system
+		Level = 1000;
+		Desc = "high command",
+		Args = {};
+
+		Function = function(plr, args)
+			print("How did you get this command?")
+		end
+	}
 	
 }
 return basicCommands
