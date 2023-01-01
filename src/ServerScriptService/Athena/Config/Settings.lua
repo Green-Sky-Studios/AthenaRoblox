@@ -13,13 +13,19 @@ local adminSettings = {
 	trelloFunctionality = false;
 	useranks = true;
 	useDiscord = false;
-	webhook = "";
+	guildID = "1017818009475239946"; -- Set this to the guild ID
 
 	Ranks = {
 		["Command Blacklist"] = {
 			Level = 0; -- Set this to the moderator level
 			Users = {};
 			Name = "Command Blacklist";
+		};
+
+		["Player"] = {
+			Level = 100;
+			Users = {};
+			Name = "Player";
 		};
 		
 		["GSS Moderator"] = {

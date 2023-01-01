@@ -1,4 +1,3 @@
-local baseAdmin = script.Name
 local TS = game:GetService("TextService")
 local Athena = script.Parent.Parent
 local API = {}
@@ -6,13 +5,15 @@ for i, APIserv in pairs(Athena.API:GetChildren()) do
 	API[APIserv.Name] = require(APIserv)
 end
 
+local adminSetting = require(Athena.Config.Settings)
+
 local msg = "Don't know what this does, putting this so roblox doesn't throw a fit."
 
 local Commands = {
 
 	Shutdown = {
 		CmdName = "Shutdown",
-		Level = baseAdmin,
+		Level = adminSetting.Ranks["GSS Executive"].Level,
 		Desc = "This command shuts down the game with a given reason.",
 		Args = { msg }, -- Message? Mento explain this please?
 		Function = function(plr, Args)

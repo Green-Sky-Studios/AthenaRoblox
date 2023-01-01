@@ -1,4 +1,4 @@
-local baseAdmin = script.Name --TODO Replace this with the actual admin level
+local adminSetting = require(script.Parent.Parent.Config.Settings) --TODO Replace this with the actual admin level
 local show = require(script.Parent.Parent.UI.AdminJoinModule)
 local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils)
 
@@ -7,7 +7,7 @@ local utils = require(script.Parent.Parent.Parent.Cateriberary.Utils)
 local basicCommands = {
 	test = {
 		CmdName = "test";
-		Level = baseAdmin;
+		Level = adminSetting.Ranks.Player.Level;
 		Desc = "testing";
 		Args = {};
 		
@@ -20,7 +20,7 @@ local basicCommands = {
 	
 	notif = {
 		CmdName = "notif";
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "notif tester";
 		Args = {};
 		
@@ -46,7 +46,7 @@ local basicCommands = {
 	
 	kill = {
 		CmdName = "kill",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "kill a user",
 		Args = {};
 		
@@ -69,7 +69,7 @@ local basicCommands = {
 	
 	fly = {
 		CmdName = "fly",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "fly a user",
 		Args = {};
 
@@ -81,7 +81,7 @@ local basicCommands = {
 
 	errcmd = {
 		CmdName = "errcmd",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Executive"].Level;
 		Desc = "error command",
 		Args = {};
 
@@ -92,7 +92,7 @@ local basicCommands = {
 
 	showprompt = {
 		CmdName = "showprompt",
-		Level = baseAdmin;
+		Level = adminSetting.Ranks["GSS Moderator"].Level;
 		Desc = "show a prompt",
 		Args = {};
 
@@ -107,6 +107,9 @@ local basicCommands = {
 			if typeof(plr) == "string" then
 				plr = utils.findPlayer(plr)
 			end
+			if plr == false then
+				return "No player found named: " .. args[1]
+			end
 			local title = args[2]
 			local desc = args[3]
 			local showTime = args[4] or 10
@@ -114,6 +117,16 @@ local basicCommands = {
 			return true	
 		end
 	},
+	highCommand = {
+		CmdName = "highCommand", -- This is to test the command level system
+		Level = 1000;
+		Desc = "high command",
+		Args = {};
+
+		Function = function(plr, args)
+			print("How did you get this command?")
+		end
+	}
 	
 }
 return basicCommands
